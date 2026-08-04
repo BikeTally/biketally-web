@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzerklärung – BikeTally</title>
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="/stil.css">
+</head>
+<body>
+<div class="blatt">
+
+<header>
+  <p class="marke">BikeTally</p>
+  <h1>Datenschutzerklärung</h1>
+</header>
+
+<h2>1. Verantwortlicher</h2>
+<p>
+  Adrian-Karol Michalik<br>
+  Karoline-Veith-Straße 21<br>
+  60486 Frankfurt am Main<br>
+  Deutschland<br>
+  E-Mail: <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>
+</p>
+
+<h2>2. Welche Daten BikeTally verarbeitet und wohin sie gehen</h2>
+<p>
+  BikeTally betreibt ein eigenes, schlankes Backend (Firebase Cloud Functions, Region
+  <code>europe-west3</code>/Frankfurt). Es speichert keine Inhalte, sondern dient zwei Zwecken:
+  Es hält zwei Zugangsschlüssel (Strava, Anthropic), die aus Sicherheitsgründen nicht in der App
+  liegen dürfen, und es zählt die Nutzung der KI-Funktionen, um Missbrauch und Kosten zu
+  begrenzen. Empfänger von Daten sind:
+</p>
+
+<h3>2.1 Firebase (Google Ireland Limited)</h3>
+<p>
+  Für Anmeldung, Datenspeicherung und den Betrieb der Serverfunktionen. Verarbeitet werden: die
+  E-Mail-Adresse (bei Registrierung mit E-Mail/Passwort) bzw. die von Apple bei „Mit Apple
+  anmelden“ übermittelten Daten, sowie sämtliche in der App erfassten Fahrrad-, Wartungs-,
+  Fahrten- und Kaufbelegdaten. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b
+  DSGVO) — ohne diese Daten funktioniert die App nicht.
+</p>
+<p>
+  Die Datenbank liegt in der europäischen Multi-Region <code>eur3</code> (Belgien und
+  Niederlande), die Serverfunktionen in <code>europe-west3</code> (Frankfurt am Main).
+</p>
+<p>
+  Zur Absicherung der Serverfunktionen wird Apple App Attest (App Check) eingesetzt. Dabei
+  bestätigt das Gerät gegenüber Apple und Firebase, dass es sich um eine unveränderte
+  Installation von BikeTally handelt. Es werden dabei keine personenbezogenen Daten übertragen
+  und keine Nutzer wiedererkannt.
+</p>
+
+<h3>2.2 Strava (Strava, Inc.)</h3>
+<p>
+  Nur wenn die Strava-Verbindung im Konto-Tab aktiv hergestellt wird. Übertragen werden ein
+  Zugriffstoken (OAuth) sowie — beim Abruf — Aktivitätsdaten (Datum, Distanz, Höhenmeter,
+  Fahrzeit, Aktivitätsname, Ausrüstungsliste). Der Austausch des Autorisierungscodes gegen die
+  Zugriffstoken läuft über unsere Serverfunktion, weil das dafür nötige Client-Geheimnis nicht in
+  der App liegen darf; dabei werden ausschließlich die Strava-Token durchgereicht und nicht
+  gespeichert. Der anschließende Abruf der Aktivitätsdaten erfolgt direkt vom Gerät. Die
+  Verbindung lässt sich jederzeit im Konto-Tab trennen, wobei die Autorisierung auch bei Strava
+  selbst widerrufen wird. Rechtsgrundlage ist die Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), da
+  diese Funktion optional ist.
+</p>
+
+<h3>2.3 Anthropic (Anthropic PBC, USA)</h3>
+<p>
+  Betrifft die KI-Funktionen: Bike-Assistent-Chat, Kaufbeleg-, Fitting-Report- und
+  Werkstattbeleg-Auslesen, Komponenten- und Intervall-Recherche, Packliste. Übertragen werden je
+  nach Funktion:
+</p>
+<ul>
+  <li>der Chatverlauf und Bike-Kontext (Komponenten, Wartungshistorie, Kilometerstand)</li>
+  <li>
+    bei Dokumenten-Uploads: der <strong>vollständige Inhalt</strong> der hochgeladenen
+    PDF-Datei — bei einem Kaufbeleg z. B. Händlername, Preis, ggf. Namen und Adresse auf der
+    Rechnung; bei einem Bike-Fitting-Report <strong>Körpermaße</strong>
+  </li>
+  <li>
+    bei der Recherche: die Suchanfrage. Die Suche wird von Anthropic ausgeführt und ist auf eine
+    feste Liste von Hersteller- und Fachmedienseiten begrenzt.
+  </li>
+</ul>
+<p>Es gibt zwei Betriebsarten, die datenschutzrechtlich unterschiedlich zu bewerten sind:</p>
+<p>
+  <strong>Regelfall — über BikeTally.</strong> Die Anfragen laufen über unsere Serverfunktion,
+  die den Anthropic-Zugangsschlüssel hält. Damit sind wir für diese Verarbeitung verantwortlich;
+  Anthropic ist unser Auftragsverarbeiter. Die Daten werden dabei <strong>in die USA
+  übermittelt</strong> (Art. 44 ff. DSGVO). Anthropic verarbeitet über die API übermittelte
+  Inhalte nach eigenen Angaben nicht zum Training seiner Modelle. Unsere Serverfunktion speichert
+  die Inhalte nicht; sie reicht sie durch und protokolliert lediglich Zeitpunkt, Zweck,
+  verwendetes Modell und die angefallenen Kosten (siehe 2.4). Rechtsgrundlage ist die
+  Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), da alle KI-Funktionen optional sind und nur auf
+  ausdrückliche Handlung hin ausgelöst werden.
+</p>
+<p>
+  <strong>Ausnahme — eigener Zugangsschlüssel.</strong> Wer im Konto-Tab einen eigenen
+  Anthropic-API-Key hinterlegt, sendet die Anfragen direkt vom Gerät an Anthropic, ohne unsere
+  Beteiligung. In diesem Fall besteht ein eigenes Vertragsverhältnis zwischen der Nutzerin/dem
+  Nutzer und Anthropic; maßgeblich sind dann deren Bedingungen und Datenschutzerklärung.
+</p>
+
+<h3>2.4 Nutzungszähler der KI-Funktionen</h3>
+<p>
+  Um Kosten und Missbrauch zu begrenzen, speichern wir je Konto und Kalendermonat: die
+  Nutzerkennung, die Anzahl der KI-Aufrufe und die dabei entstandenen Kosten. <strong>Inhalte der
+  Anfragen werden dabei nicht gespeichert.</strong> Rechtsgrundlage ist das berechtigte Interesse
+  an einem missbrauchssicheren und finanzierbaren Betrieb (Art. 6 Abs. 1 lit. f DSGVO).
+</p>
+
+<h2>3. Was lokal auf dem Gerät bleibt</h2>
+<p>
+  Hochgeladene Kaufbeleg- und Fitting-PDFs werden <strong>nicht</strong> in der Cloud
+  gespeichert, sondern nur lokal im Dateisystem des Geräts abgelegt; nur die daraus ausgelesenen
+  Werte landen in der Datenbank. Zum Auslesen wird ihr Inhalt allerdings einmalig an Anthropic
+  übertragen — siehe 2.3.
+</p>
+<p>
+  Die Strava-Zugriffstoken und, sofern hinterlegt, ein eigener Anthropic-API-Key liegen
+  ausschließlich im Schlüsselbund (Keychain) des Geräts. Beim Abmelden und beim Löschen des
+  Kontos werden sie zusammen mit den lokal gespeicherten Belegen entfernt.
+</p>
+
+<h2>4. Freigabe-Links („Digitales Scheckheft“)</h2>
+<p>
+  Wird ein Freigabe-Link für ein Bike erzeugt, liegt ein Snapshot der Bike-, Komponenten- und
+  Wartungsdaten unter einer zufälligen, schwer erratbaren Adresse öffentlich lesbar in der
+  Datenbank — ohne Anmeldung, für jede Person mit dem Link. Der Link lässt sich jederzeit im
+  jeweiligen Bike zurückziehen, wodurch der Snapshot gelöscht wird. Wird das betreffende Bike
+  oder das gesamte Konto gelöscht, wird der Freigabe-Link automatisch mit entfernt.
+</p>
+
+<h2>5. Speicherdauer</h2>
+<p>
+  Daten werden gespeichert, solange das Konto besteht. Das Konto lässt sich im Konto-Tab unter
+  „Konto löschen“ vollständig und unwiderruflich löschen; dabei werden sämtliche zugehörigen
+  Daten entfernt — alle Bikes, Komponenten, Serviceintervalle, Wartungen, Fahrten, Fittings,
+  Reifendruckwerte, Werkstattbesuche, Touren, Material, Teile, das Änderungsprotokoll sowie
+  veröffentlichte Freigabe-Links. Gerätelokale Daten werden dabei ebenfalls entfernt. Das
+  Änderungsprotokoll wird unabhängig davon nach 365 Tagen automatisch bereinigt.
+</p>
+<p>
+  Eine Ausnahme: Der Nutzungszähler der KI-Funktionen (siehe 2.4) wird bei der Kontolöschung
+  <strong>nicht</strong> mit entfernt. Er enthält keine Inhalte, sondern ausschließlich
+  Nutzerkennung, Monat, Anzahl der Aufrufe und Kosten. Grund ist der Missbrauchsschutz:
+  Andernfalls ließe sich ein ausgeschöpftes Kontingent durch Löschen und Neuanlegen des Kontos
+  zurücksetzen.
+</p>
+
+<h2>6. Deine Rechte</h2>
+<p>
+  Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und
+  Widerspruch nach Art. 15–21 DSGVO. Ein vollständiger Datenexport ist im Konto-Tab unter
+  „Datenhygiene“ jederzeit selbst möglich, die Löschung des gesamten Kontos ebenfalls im
+  Konto-Tab. Für alle weiteren Anliegen:
+  <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>.
+</p>
+<p>
+  Beschwerderecht besteht bei der zuständigen Aufsichtsbehörde; für Frankfurt am Main ist das
+  der Hessische Beauftragte für Datenschutz und Informationsfreiheit (HBDI),
+  Gustav-Stresemann-Ring 1, 65189 Wiesbaden.
+</p>
+
+<h2>7. Kinder</h2>
+<p>BikeTally richtet sich nicht an Kinder unter 16 Jahren.</p>
+
+<h2>8. Änderungen dieser Erklärung</h2>
+<p>
+  Diese Erklärung wird angepasst, wenn sich die Funktionen der App oder die eingesetzten Dienste
+  ändern. Maßgeblich ist die jeweils auf dieser Seite veröffentlichte Fassung.
+</p>
+
+<p class="stand">Stand: 4. August 2026</p>
+
+<footer>
+  <a href="/">Start</a> · <a href="/impressum">Impressum</a> ·
+  <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>
+</footer>
+
+</div>
+</body>
+</html>

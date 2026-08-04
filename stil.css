@@ -1,0 +1,147 @@
+/* Übernimmt die Haltung der App: ein gut gesetztes Scheckheft. Papiergrund statt Weiß,
+   Haarlinien statt Kästen, gedämpfte Farben. Die Werte stammen aus Gestaltung.swift, damit
+   Website und App nicht wie zwei verschiedene Produkte aussehen. */
+
+:root {
+  --grund: #F5F3EE;
+  --grund-gedaempft: #EBE8E1;
+  --text: #1C1B18;
+  --text-gedaempft: #78746C;
+  --text-leise: #9C978D;
+  --linie: #CFCBC1;
+  --linie-stark: #1C1B18;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grund: #171614;
+    --grund-gedaempft: #1F1E1B;
+    --text: #EDEAE3;
+    --text-gedaempft: #9A948A;
+    --text-leise: #7C766D;
+    --linie: #3A3733;
+    --linie-stark: #EDEAE3;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 20px 80px;
+  background: var(--grund);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+.blatt {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+/* Kopf: Markenzeile gesperrt gesetzt, wie der Anreisser in der App. */
+header {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--linie-stark);
+  margin-bottom: 40px;
+}
+
+.marke {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-gedaempft);
+  margin: 0 0 6px;
+}
+
+header h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-gedaempft);
+  font-weight: 600;
+  margin: 44px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--linie);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 28px 0 8px;
+}
+
+p { margin: 0 0 14px; }
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--linie);
+}
+a:hover { text-decoration-color: var(--text); }
+
+ul { padding-left: 20px; margin: 0 0 14px; }
+li { margin-bottom: 6px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 20px;
+  font-size: 15px;
+  display: block;
+  overflow-x: auto;
+}
+th, td {
+  text-align: left;
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--linie);
+  vertical-align: top;
+}
+th {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-gedaempft);
+  font-weight: 600;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--grund-gedaempft);
+  padding: 1px 5px;
+}
+
+.hinweis {
+  border-left: 2px solid var(--linie-stark);
+  padding: 2px 0 2px 16px;
+  margin: 0 0 20px;
+  color: var(--text-gedaempft);
+  font-size: 15px;
+}
+
+footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--linie);
+  font-size: 14px;
+  color: var(--text-leise);
+}
+footer a { color: var(--text-gedaempft); }
+
+.stand {
+  font-size: 14px;
+  color: var(--text-leise);
+  margin-top: 40px;
+}
