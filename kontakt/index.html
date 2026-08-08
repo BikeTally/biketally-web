@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt – BikeTally</title>
+<meta name="description" content="Anfragen an BikeTally – per Formular oder E-Mail.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="/stil.css">
+<style>
+/* Nur was das Formular braucht. Der Rest kommt aus stil.css, damit die Seite nicht
+   danebensteht: Haarlinien statt Kästen, Papiergrund, gedämpfte Schrift. */
+label {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-gedaempft);
+  font-weight: 600;
+  margin: 22px 0 6px;
+}
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--grund-gedaempft);
+  border: 1px solid var(--linie);
+  padding: 10px 12px;
+}
+input:focus, textarea:focus { outline: 2px solid var(--linie-stark); outline-offset: -2px; }
+textarea { min-height: 11rem; resize: vertical; }
+
+/* Der Honigtopf. `display:none` genügt hier nicht allein: Manche Ausfüllhelfer und
+   Bildschirmleser gehen trotzdem hinein, deshalb zusätzlich aria-hidden und tabindex="-1"
+   am Feld selbst. */
+.honigtopf { display: none; }
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: 1px solid var(--linie-stark);
+  padding: 13px 24px;
+  margin-top: 28px;
+  cursor: pointer;
+  width: 100%;
+}
+button:disabled { opacity: 0.4; cursor: default; }
+
+#rueckmeldung { margin-top: 20px; font-size: 15px; }
+#rueckmeldung:empty { margin-top: 0; }
+.gelungen { color: var(--text); }
+.misslungen { color: var(--text); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="blatt">
+
+<header>
+  <p class="marke">BikeTally</p>
+  <h1>Kontakt</h1>
+</header>
+
+<p>
+  Fragen, Fehlermeldungen, Wünsche — hier oder direkt per E-Mail an
+  <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>. Beides landet im selben Postfach.
+</p>
+
+<p class="hinweis">
+  Anfragen werden in der Regel innerhalb von 24 Stunden beantwortet. BikeTally ist eine
+  Einzelentwicklung neben dem Beruf — an Wochenenden kann es etwas länger dauern.
+</p>
+
+<form id="formular" novalidate>
+  <label for="name">Name (freiwillig)</label>
+  <input type="text" id="name" name="name" maxlength="100" autocomplete="name">
+
+  <label for="email">E-Mail-Adresse</label>
+  <input type="email" id="email" name="email" maxlength="200" required autocomplete="email">
+
+  <label for="nachricht">Nachricht</label>
+  <textarea id="nachricht" name="nachricht" maxlength="5000" required></textarea>
+
+  <!-- Honigtopf gegen automatisierte Einsendungen: Ein Mensch sieht dieses Feld nicht und
+       füllt es deshalb nie aus. Ist es ausgefüllt, verwirft der Server die Anfrage. Das ist
+       der Grund, warum diese Seite ohne CAPTCHA auskommt — und damit ohne einen weiteren
+       Empfänger in der Datenschutzerklärung. -->
+  <div class="honigtopf" aria-hidden="true">
+    <label for="webseite">Webseite</label>
+    <input type="text" id="webseite" name="webseite" tabindex="-1" autocomplete="off">
+  </div>
+
+  <button type="submit" id="senden">Absenden</button>
+</form>
+
+<p id="rueckmeldung" role="status" aria-live="polite"></p>
+
+<h2>Was mit deiner Anfrage passiert</h2>
+<p>
+  Deine Nachricht und die E-Mail-Adresse, unter der du eine Antwort erwartest, gehen über eine
+  Serverfunktion in Frankfurt (Google/Firebase) an das Postfach
+  <code>hallo@biketally.de</code> bei der IONOS SE. <strong>Der Inhalt wird dabei nicht
+  gespeichert</strong> — die Funktion reicht ihn weiter und vergisst ihn. Gespeichert wird nur
+  ein Zähler gegen Massenzusendungen; er enthält statt deiner IP-Adresse deren gekürzte
+  Prüfsumme und läuft nach zwei Stunden bzw. zwei Tagen von selbst ab.
+</p>
+<p>
+  Rechtsgrundlage ist das berechtigte Interesse an der Bearbeitung deiner Anfrage
+  (Art. 6 Abs. 1 lit. f DSGVO), bei Anfragen zu einem Vertragsverhältnis dessen Erfüllung
+  (Art. 6 Abs. 1 lit. b DSGVO). Die Korrespondenz wird bis zu drei Jahre aufbewahrt.
+  Einzelheiten und deine Rechte: <a href="/datenschutz">Datenschutzerklärung</a>.
+</p>
+
+<footer>
+  <a href="/">Start</a> · <a href="/impressum">Impressum</a> ·
+  <a href="/datenschutz">Datenschutz</a> ·
+  <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>
+</footer>
+
+</div>
+
+<script>
+// Kein Framework, keine fremde Quelle: Die Seite lädt nichts nach, deshalb steht in der
+// Datenschutzerklärung auch nichts über eingebundene Dritte.
+(function () {
+  var ZIEL = "https://europe-west3-bikelog-33934.cloudfunctions.net/kontaktAnfrage";
+  var formular = document.getElementById("formular");
+  var knopf = document.getElementById("senden");
+  var rueckmeldung = document.getElementById("rueckmeldung");
+
+  function sagen(text, gelungen) {
+    rueckmeldung.textContent = text;
+    rueckmeldung.className = gelungen ? "gelungen" : "misslungen";
+  }
+
+  formular.addEventListener("submit", function (ereignis) {
+    ereignis.preventDefault();
+    var daten = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      nachricht: document.getElementById("nachricht").value,
+      webseite: document.getElementById("webseite").value
+    };
+    if (!daten.email.trim() || !daten.nachricht.trim()) {
+      sagen("Bitte E-Mail-Adresse und Nachricht ausfüllen.", false);
+      return;
+    }
+    knopf.disabled = true;
+    sagen("Wird gesendet …", true);
+
+    fetch(ZIEL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(daten)
+    }).then(function (antwort) {
+      if (antwort.ok) {
+        formular.reset();
+        sagen("Danke — die Nachricht ist angekommen. Antwort in der Regel innerhalb von 24 Stunden.", true);
+        return;
+      }
+      // Die Fehlerkennungen des Servers in Klartext übersetzen. Der Rückfallsatz nennt
+      // bewusst die E-Mail-Adresse: Wenn das Formular klemmt, darf der zweite Weg nicht
+      // erst gesucht werden müssen — sonst ist die Anforderung aus § 5 DDG genau dann
+      // nicht erfüllt, wenn es darauf ankommt.
+      return antwort.json().catch(function () { return {}; }).then(function (koerper) {
+        if (antwort.status === 429) {
+          sagen("Zu viele Anfragen in kurzer Zeit. Bitte später erneut versuchen oder direkt an hallo@biketally.de schreiben.", false);
+        } else if (koerper.error === "email_ungueltig") {
+          sagen("Die E-Mail-Adresse sieht nicht richtig aus — bitte prüfen.", false);
+        } else if (koerper.error === "nachricht_ungueltig") {
+          sagen("Die Nachricht ist leer oder zu lang (höchstens 5000 Zeichen).", false);
+        } else {
+          sagen("Das hat leider nicht geklappt. Bitte schreib direkt an hallo@biketally.de.", false);
+        }
+      });
+    }).catch(function () {
+      sagen("Keine Verbindung zum Server. Bitte schreib direkt an hallo@biketally.de.", false);
+    }).finally(function () {
+      knopf.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>

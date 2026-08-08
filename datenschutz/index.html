@@ -1,30 +1,771 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>BikeTally</title>
-<style>
-  body {
-    background: #f7f4ee;
-    color: #2a2724;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    text-align: center;
-    padding: 1.5rem;
-  }
-  p { max-width: 28rem; line-height: 1.5; }
-  @media (prefers-color-scheme: dark) {
-    body { background: #1c1a17; color: #ece7de; }
-  }
-</style>
+<title>Datenschutzerklärung – BikeTally</title>
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="/stil.css">
 </head>
 <body>
-<p>BikeTally.de wird gerade überarbeitet und ist in Kürze wieder da.</p>
+<div class="blatt">
+
+<header>
+  <p class="marke">BikeTally</p>
+  <h1>Datenschutzerklärung</h1>
+</header>
+
+<h2>1. Verantwortlicher</h2>
+<p>
+  Adrian-Karol Michalik<br>
+  Karoline-Veith-Straße 21<br>
+  60486 Frankfurt am Main<br>
+  Deutschland<br>
+  E-Mail: <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>
+</p>
+
+<h2>2. Welche Daten BikeTally verarbeitet und wohin sie gehen</h2>
+<p>
+  BikeTally betreibt ein eigenes, schlankes Backend (Firebase Cloud Functions, Region
+  <code>europe-west3</code>/Frankfurt). Es speichert keine Inhalte, sondern dient zwei Zwecken:
+  Es hält zwei Zugangsschlüssel (Strava, Anthropic), die aus Sicherheitsgründen nicht in der App
+  liegen dürfen, und es zählt die Nutzung der KI-Funktionen, um Missbrauch und Kosten zu
+  begrenzen. Empfänger von Daten sind:
+</p>
+
+<h3>2.1 Firebase (Google Ireland Limited)</h3>
+<p>
+  Für Anmeldung, Datenspeicherung und den Betrieb der Serverfunktionen. Verarbeitet werden: die
+  E-Mail-Adresse (bei Registrierung mit E-Mail/Passwort) bzw. die von Apple bei „Mit Apple
+  anmelden“ übermittelten Daten (Apple Distribution International Limited, Irland; siehe 2.2),
+  sowie sämtliche in der
+  App erfassten Fahrrad-, Wartungs-, Fahrten- und Kaufbelegdaten. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b
+  DSGVO) — ohne diese Daten funktioniert die App nicht.
+</p>
+<p>
+  Zu den erfassten Daten gehören auch die aus einem Bike-Fitting-Report ausgelesenen Werte.
+  Diese enthalten <strong>Körpermaße</strong> (etwa Sitzknochenabstand, Schuhgröße, Stance
+  Width, Sattelbreite) und sind damit Gesundheitsdaten im Sinne des Art. 9 DSGVO. Sie werden
+  nicht nur einmalig zum Auslesen an Anthropic übertragen (siehe 2.6), sondern dauerhaft in der
+  Datenbank gespeichert, damit sich der Report später in der App ansehen lässt. Für diese
+  Speicherung stützen wir uns zusätzlich auf Art. 9 Abs. 2 lit. a DSGVO (ausdrückliche
+  Einwilligung), und wir holen sie mit einem <strong>eigenen Einwilligungsblatt</strong> ein:
+  Nach dem Auslesen zeigt die App die gefundenen Werte zunächst nur an. Tippst du auf
+  „Speichern“, geht ein Blatt auf, das die Körpermaße als besondere Kategorie benennt, die
+  Bezeichnungen der Messgrößen genau dieses Reports aufzählt, Firebase als Speicherort nennt
+  (Datenbank in Belgien und den Niederlanden), auf den späteren Weg zu Anthropic bei Nutzung der
+  KI-Funktionen hinweist und den Widerruf erklärt. Erst mit „Zustimmen und speichern“ werden die
+  Werte geschrieben; bei „Ablehnen“ wird nichts gespeichert — weder die Werte in der Datenbank
+  noch die PDF. Weil jede Speicherung ein für sich abgeschlossener Vorgang ist, fragt die App vor
+  <strong>jedem</strong> Fitting erneut. Zu jeder Zustimmung speichern wir einen Nachweis mit
+  Zeitpunkt, Fassungsnummer des Textes, betroffenem Bike und den Bezeichnungen — nicht den
+  Werten — der Messgrößen (siehe unten). Ohne Fitting-Import werden keine solchen Daten
+  gespeichert; der Widerruf besteht darin, das Fitting in der App wieder zu löschen, wodurch die
+  Messwerte aus der Datenbank und die Report-PDF aus deinem iCloud Drive bzw., wenn kein
+  iCloud-Konto verbunden ist, aus dem geräteeigenen Rückfallordner entfernt werden (siehe
+  Abschnitt 3).
+</p>
+<p>
+  <strong>Änderungsprotokoll.</strong> Damit sich später nachvollziehen lässt, woher ein Wert
+  stammt, hält die App zu jedem fachlichen Vorgang einen Protokolleintrag fest: Zeitpunkt,
+  Bereich (Bike, Komponente, Wartung, Serviceintervall, Fitting, Inventar, Teil, Messung, Tour,
+  Reifendruck oder Sicherheit), Art des Vorgangs (angelegt, geändert, gelöscht), Herkunft (von
+  Hand, Assistent, Import, Strava, KI-Recherche, Werkstatt), eine kurze Beschreibung in Worten
+  sowie die Kennungen des betroffenen Objekts und Bikes. Anders als die übrigen oben genannten
+  Angaben trägt diesen Eintrag nicht die Nutzerin/der Nutzer ein, sondern die App selbst —
+  deshalb steht er hier gesondert. Zweck ist die Nachvollziehbarkeit des eigenen Datenbestands:
+  Ohne das Protokoll wäre nach einem KI-Vorschlag, einem Import oder einer Werkstattübernahme
+  nicht mehr erkennbar, welcher Wert von wem oder woher stammt. Rechtsgrundlage ist die
+  Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO), soweit das Protokoll die zugesagte Funktion
+  „woher kommt dieser Wert?“ trägt, im Übrigen unser berechtigtes Interesse an einem
+  nachvollziehbaren und korrigierbaren Datenbestand (Art. 6 Abs. 1 lit. f DSGVO). Die Einträge
+  gehen in den Datenexport ein, werden mit dem Konto gelöscht und unabhängig davon nach 365 Tagen
+  automatisch entfernt (siehe Abschnitt 5).
+</p>
+<p>
+  Für die Einwilligungen, die diese App einholt, speichern wir zusätzlich einen Nachweis nach
+  Art. 7 Abs. 1 DSGVO: je Entscheidung Zeitpunkt, Art der Einwilligung und Fassung des Textes,
+  dem zugestimmt wurde (KI-Funktionen, Apple-Health-Verbindung, Speicherung eines Bike-Fittings).
+  Dazu kommt der Nachweis der Alterserklärung „16 oder älter“ (<code>altersbestaetigung</code> mit
+  Zeitpunkt und zugrunde gelegter Altersgrenze). Sie wird seit dem 7. August 2026 im
+  Einwilligungsblatt selbst abgegeben, nicht mehr bei der Kontoanlage — Einzelheiten in
+  Abschnitt 7. Konten aus dem Zeitraum 6.–7. August 2026 tragen den Nachweis aus der
+  Vorgängerlösung bereits. Diese Nachweise sind Teil des Kontos, gehen in den Datenexport ein und
+  werden mit dem Konto gelöscht. Rechtsgrundlage ist die rechtliche Verpflichtung zur Nachweisbarkeit
+  (Art. 6 Abs. 1 lit. c i.&nbsp;V.&nbsp;m. Art. 7 Abs. 1 DSGVO).
+</p>
+<p>
+  Ein dritter Anmeldeweg ist der Gastmodus: Dabei legt Firebase ein anonymes Konto ohne
+  E-Mail-Adresse an. Alle Daten werden ganz normal unter diesem Konto gespeichert und lassen sich
+  später per Tastendruck mit einer Apple-ID sichern (dieselbe uid bleibt erhalten). Meldest du
+  dich ohne diese Sicherung ab, verlierst du den <strong>Zugang</strong> zu diesen Daten — ein
+  anonymes Konto lässt sich danach nicht erneut anmelden. Gelöscht sind sie damit nicht: Sie
+  bleiben unter dem anonymen Konto gespeichert und werden erst dann automatisch entfernt, wenn
+  dieses Konto 180 Tage lang nicht mehr benutzt wurde (siehe Abschnitt 5). Der frühere Wortlaut
+  dieses Absatzes sagte an dieser Stelle eine sofortige Löschung zu, die nie stattfand.
+</p>
+<p>
+  Die Datenbank liegt in der europäischen Multi-Region <code>eur3</code> (Belgien und
+  Niederlande), die Serverfunktionen in <code>europe-west3</code> (Frankfurt am Main). Ein
+  Zugriff aus Drittländern durch Google als Anbieter lässt sich trotz des EU-Speicherorts nicht
+  vollständig ausschließen; siehe dazu Abschnitt 2.10.
+</p>
+<p>
+  Zur Absicherung der Serverfunktionen wird Apple App Attest (App Check) eingesetzt. Dabei
+  bestätigt das Gerät gegenüber Apple und Firebase, dass es sich um eine unveränderte
+  Installation von BikeTally handelt. Es werden dabei keine personenbezogenen Daten übertragen
+  und keine Nutzer wiedererkannt. Diese Prüfung läuft derzeit im Beobachtungsbetrieb: Anfragen
+  ohne gültigen Nachweis werden protokolliert, aber noch nicht abgewiesen — sonst würden
+  Installationen ausgesperrt, die noch keinen Nachweis mitschicken. Die Umstellung auf Abweisen
+  erfolgt, sobald die Protokolle zeigen, dass praktisch alle Anfragen einen Nachweis mitbringen.
+</p>
+
+<h3>2.2 Apple (iCloud Drive)</h3>
+<p>
+  Hochgeladene Kaufbeleg-, Fitting- und Werkstattbeleg-PDFs liegen im iCloud-Drive-Container der
+  App (Ordner „BikeTally“, in der Dateien-App sichtbar) und synchronisieren automatisch über alle
+  Geräte derselben Apple-ID. Empfänger ist damit Apple. Für Personen im Europäischen
+  Wirtschaftsraum ist nach Apples eigener Datenschutzerklärung durchgehend die <strong>Apple
+  Distribution International Limited</strong> in Irland verantwortlich — also eine Gesellschaft
+  in der Europäischen Union. Rechtsgrundlage
+  ist die Vertragserfüllung bzw. eine vorvertragliche Maßnahme (Art. 6 Abs. 1 lit. b DSGVO): Die
+  Ablage der Belege ist Teil der zugesagten Funktion. Sie liegt dabei in deinem eigenen
+  iCloud-Container, auf den der Betreiber von BikeTally keinen Zugriff hat. Näheres zu
+  Speicherort und zur Rückfallebene ohne iCloud-Konto siehe Abschnitt 3.
+</p>
+<p>
+  Für iCloud Drive und für Apple Health (2.3) heißt das zweierlei: Beides liegt in deinem
+  <strong>eigenen Apple-Umfeld</strong>, und BikeTally hat darauf keinen Zugriff. Die
+  Beleg-PDFs liegen in deinem eigenen iCloud Drive; die Health-Werte liegen im Health-Speicher
+  deines Geräts, und ob sie darüber hinaus über iCloud zwischen deinen Geräten abgeglichen
+  werden, entscheidest du selbst in den iOS-Einstellungen. Soweit Apple dabei Daten verarbeitet,
+  ist Apple dir gegenüber selbst verantwortlich. Eine Übermittlung in ein
+  Drittland durch BikeTally findet insoweit gar nicht statt. Für Apples eigene internationale
+  Weiterübermittlungen aus dem Europäischen Wirtschaftsraum gelten nach Apples Angaben
+  Standardvertragsklauseln; das ist Apples eigene Compliance und keine Garantie, auf die
+  BikeTally sich berufen würde — sie wird hier auch nicht gebraucht, weil der Vertragspartner in
+  der EU sitzt.
+</p>
+
+<h3>2.3 Apple Health (HealthKit)</h3>
+<p>
+  Optional lässt sich Apple Health im Konto-Tab als zweite Quelle für Fahrten verbinden.
+  BikeTally erhält dabei Lesezugriff auf deine Workouts und die Radstrecke – Apple Health lässt
+  keine feinere Berechtigungsauswahl zu, deshalb zeigt der iOS-Dialog „Workouts“ und nicht
+  „Rad-Workouts“. Ausgewertet werden davon ausschließlich Rad-Workouts; es wird nichts nach
+  Health zurückgeschrieben. Die gelesenen Werte verlassen das Gerät auf folgenden Wegen:
+</p>
+<ol>
+  <li>als daraus erzeugte <strong>Fahrten in Firestore</strong> – Datum, Distanz, Dauer,
+    Höhenmeter und der Name der aufzeichnenden App (siehe 2.1);</li>
+  <li>als <strong>fortgeschriebener Kilometerstand</strong> von Bike und Komponenten. Dieser
+    Wert geht bei Nutzung der KI-Funktionen an Anthropic in die USA (siehe 2.6) – die Angabe
+    stammt dann mittelbar aus deinen Rad-Workouts;</li>
+  <li>als Kilometerstand im <strong>öffentlich lesbaren Snapshot</strong>, wenn du für ein Bike
+    einen Freigabe-Link erzeugst (siehe Abschnitt 4);</li>
+  <li>mittelbar innerhalb derselben Datenbank (Empfänger also wie bei Weg 1, siehe 2.1): als
+    Eintrag im <strong>Änderungsprotokoll</strong> („Kilometerstand von … um … km erhöht,
+    N Rad-Workouts aus Apple Health“) und – nur bei eingeschalteten Wartungserinnerungen – als
+    Kilometerangabe in der <strong>Fälligkeits-Kurzfassung</strong> (siehe 2.4).</li>
+</ol>
+<p>
+  Wie bei Strava (2.5) ist auch dieses Lesen nicht einmalig: Nach dem Verbinden fragt die App die
+  Rad-Workouts selbsttätig weiter ab — beim Öffnen der App und im Hintergrund, frühestens im
+  Abstand einer Stunde —, bis du die Verbindung trennst. Ein Drittlandtransfer entsteht dadurch
+  nicht; die Wege der gelesenen Werte sind dieselben wie oben beschrieben.
+</p>
+<p>
+  Dein selbst angestoßener Datenexport (Konto-Tab → Datenhygiene) enthält diese Fahrten
+  ebenfalls, samt der Herkunftsangabe „Apple Health“; wohin die Datei geht, entscheidest du beim
+  Teilen. Wege 2 und 3 setzen jeweils eine eigene Entscheidung von dir voraus (KI-Einwilligung
+  bzw. Erzeugen eines Freigabe-Links); ohne sie bleibt es bei den Wegen 1 und 4. Die Verbindung lässt sich
+  jederzeit im Konto-Tab unter „Apple Health“ mit „Verbindung trennen“ beenden — danach werden
+  keine Workouts mehr gelesen und keine Bike-Zuordnung mehr geführt. Die iOS-Leseberechtigung
+  selbst kann nur Apple entziehen; das geht in den iOS-Einstellungen unter Datenschutz &amp;
+  Sicherheit → Health.
+  Die Health-Rohdaten selbst liegen im Health-Speicher deines Geräts; BikeTally übermittelt sie
+  nicht an Apple, sondern liest sie dort nur aus. Ob sie darüber hinaus über iCloud zwischen
+  deinen Geräten abgeglichen werden, entscheidest du in den iOS-Einstellungen; soweit Apple sie
+  dabei verarbeitet, ist Apple dir gegenüber selbst verantwortlich (Rechtsperson und Einordnung
+  siehe 2.2). Rechtsgrundlage ist die
+  Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), da diese Funktion optional ist. Rad-Workouts sind
+  Gesundheitsdaten und damit eine besondere Kategorie personenbezogener Daten; die Verarbeitung
+  stützt sich deshalb zusätzlich auf Art. 9 Abs. 2 lit. a DSGVO (ausdrückliche Einwilligung in
+  besondere Kategorien personenbezogener Daten). Diese Einwilligung holt die App über ein
+  <strong>eigenes Einwilligungsblatt</strong> ein, das <strong>vor</strong> dem iOS-Systemdialog
+  erscheint. Es benennt, was gelesen wird, dass daraus dauerhafte Fahrten in der BikeTally-Cloud
+  entstehen (Firebase von Google, Datenbank in Belgien und den Niederlanden), welche weiteren
+  Wege sich daraus ergeben können (Anthropic in den USA bei Nutzung der KI-Funktionen,
+  öffentliches Scheckheft bei einem Freigabe-Link) und wie sich die Zustimmung widerrufen lässt;
+  erst mit „Zustimmen und verbinden“ geht es weiter. Zu jeder Entscheidung — Erteilen wie
+  Widerrufen — speichern wir einen Nachweis mit Zeitpunkt, den gelesenen Datentypen und der
+  Fassungsnummer des Textes (siehe 2.1). Der iOS-Systemdialog danach erteilt lediglich die
+  Leseberechtigung auf dem Gerät; er nennt keinen Empfänger dessen, was mit den Werten
+  anschließend geschieht, und kann die ausdrückliche Einwilligung nach Art. 9 Abs. 2 lit. a
+  DSGVO deshalb nicht tragen.
+</p>
+
+<h3>2.4 Apple Push Notification service (APNs)</h3>
+<p>
+  Für Erinnerungen an fällige Wartungen registriert sich das Gerät bei Apples Push-Dienst (APNs;
+  Empfänger ist Apple, Rechtsperson siehe 2.2). Anders als bei iCloud Drive und Apple Health
+  nutzt hier <strong>BikeTally</strong> einen Dienst von Apple, und zwar auf Grundlage des
+  Vertrags über das Apple Developer Program; Vertragspartner ist auch dabei die Apple
+  Distribution International Limited in Irland. Dabei entsteht ein Geräte-Token, das wir unter
+  <code>users/{uid}/push_geraete/{token}</code> in Firestore speichern. Der serverseitige Versand
+  dieser Erinnerungen ist derzeit noch nicht aktiv; die Registrierung läuft bereits, damit sie
+  startbereit ist, sobald er es wird.
+</p>
+<p>
+  Solange die Erinnerungen eingeschaltet sind, legt die App zusätzlich eine
+  <strong>Kurzfassung deiner fälligen Wartungen</strong> unter
+  <code>users/{uid}/uebersicht/faelligkeiten</code> ab: je Eintrag die Bezeichnung des
+  Serviceintervalls, der Name des betroffenen Bikes und eine kurze Begründung („2.037 von
+  2.000 km“), höchstens zehn fällige und zehn demnächst fällige Einträge. Der Grund dafür ist,
+  dass der Server die Erinnerung formulieren können muss, ohne die Fälligkeit selbst zu
+  berechnen — die Rechnung dazu läuft ausschließlich auf deinem Gerät. Der Eintrag liegt in
+  deinem eigenen Konto, geht in den Datenexport ein und wird mit dem Konto gelöscht. Schaltest
+  du die Erinnerungen im Konto-Tab wieder aus, wird er sofort gelöscht — zusammen mit dem
+  Push-Gerätetoken dieses Geräts.
+</p>
+<p>
+  Rechtsgrundlage ist das berechtigte Interesse an der Erinnerungsfunktion (Art. 6 Abs. 1 lit. f
+  DSGVO), der du durch das Aktivieren der Mitteilungen zustimmst; die Mitteilungen lassen sich
+  jederzeit in den iOS-Einstellungen und im Konto-Tab wieder abschalten. Das Gerätetoken dieses
+  Geräts wird entfernt, sobald du die Erinnerungen im Konto-Tab ausschaltest, ebenso beim
+  Abmelden und beim Löschen des Kontos. Das Ausschalten erreicht das Token allerdings nur, wenn
+  die App in dieser Sitzung bei Apples Push-Dienst registriert war; hast du die
+  Mitteilungsberechtigung vorher in den iOS-Einstellungen entzogen, bleibt es bis zum Abmelden
+  oder zur Kontolöschung stehen. Tote Token, die auf keinem dieser Wege abgeräumt
+  wurden — etwa weil die App gelöscht wurde —, trägt der Versand aus, sobald er aktiv ist und
+  APNs sie als ungültig zurückmeldet; bis dahin bleiben sie längstens bis zur Kontolöschung
+  stehen. Die Fälligkeits-Kurzfassung wird beim Ausschalten und beim Löschen des Kontos entfernt;
+  das bloße Abmelden lässt sie stehen, weil sie zu dem Konto gehört und nicht zu diesem Gerät.
+</p>
+
+<h3>2.5 Strava (Strava, Inc.)</h3>
+<p>
+  Nur wenn die Strava-Verbindung im Konto-Tab aktiv hergestellt wird. Übertragen werden ein
+  Zugriffstoken (OAuth) sowie — beim Abruf — Aktivitätsdaten (Datum, Distanz, Höhenmeter,
+  Fahrzeit, Aktivitätsname, Ausrüstungsliste). Der Austausch des Autorisierungscodes gegen die
+  Zugriffstoken läuft über unsere Serverfunktion, weil das dafür nötige Client-Geheimnis nicht in
+  der App liegen darf; dabei werden ausschließlich die Strava-Token durchgereicht und nicht
+  gespeichert. Der anschließende Abruf der Aktivitätsdaten erfolgt direkt vom Gerät. Die
+  Verbindung lässt sich jederzeit im Konto-Tab trennen, wobei die Autorisierung auch bei Strava
+  selbst widerrufen wird. Rechtsgrundlage ist die Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), da
+  diese Funktion optional ist. Strava, Inc. hat seinen Sitz in den USA; die Übertragung ist damit
+  ein Drittlandtransfer (Art. 44 ff. DSGVO) und stützt sich auf deine ausdrückliche Einwilligung
+  nach Art. 49 Abs. 1 lit. a DSGVO — siehe Abschnitt 2.10 zu den damit verbundenen Risiken. Die
+  App nennt diese Punkte an beiden Stellen, an denen sich die Verbindung herstellen lässt: im
+  Konto-Tab und in der Ersteinrichtung. Der Tipp auf „Mit Strava verbinden“ ist dort zugleich die
+  Einwilligungshandlung.
+</p>
+<p>
+  <strong>Nach dem Herstellen läuft die Verbindung selbsttätig weiter — aber nur, während du die
+  App benutzt.</strong> Sobald mindestens ein Bike einer Strava-Ausrüstung zugeordnet ist, holt
+  die App neue Aktivitäten <strong>beim Öffnen</strong> von sich aus, ohne dass du das jedes Mal
+  anstoßen musst. Zwischen zwei automatischen Läufen liegt mindestens eine Stunde. Stößt du den
+  Abgleich im Konto-Tab von Hand an, findet er unabhängig davon sofort statt.
+  Das geht so weiter, bis du die Verbindung im Konto-Tab trennst. Weil der Abruf direkt vom Gerät
+  zu Strava erfolgt, sieht Strava dabei <strong>jedes Mal</strong> die IP-Adresse des Geräts.
+</p>
+<p>
+  <strong>Was ausdrücklich nicht (mehr) passiert:</strong> Ist die App geschlossen, wird nichts
+  abgerufen. Bis zum 7. August 2026 holte eine Hintergrundaufgabe die Aktivitäten auch dann, wenn
+  die App tagelang nicht geöffnet wurde; das ist entfallen. Grund war die Rechtsgrundlage: Ein von
+  dir vollständig entkoppelter Dauerabruf lässt sich auf eine Einwilligung nach Art. 49 Abs. 1
+  lit. a DSGVO nicht stützen (siehe 2.10). Jede Übermittlung an Strava hängt seitdem daran, dass
+  du die App öffnest oder den Abgleich selbst anstößt.
+</p>
+
+<h3>2.6 Anthropic (Anthropic PBC, USA)</h3>
+<p>
+  Betrifft die KI-Funktionen: Bike-Assistent-Chat, Kaufbeleg-, Fitting-Report- und
+  Werkstattbeleg-Auslesen, Komponenten- und Intervall-Recherche, Packliste. Übertragen werden je
+  nach Funktion:
+</p>
+<ul>
+  <li>
+    der Chatverlauf und der Bike-Kontext. Dazu gehören Name, Typ und Rahmengröße des Bikes, der
+    Kilometerstand, die aktiven Komponenten mit Spezifikation, Einbaudatum und Laufleistung, der
+    Status der Serviceintervalle und die letzten Wartungseinträge — und,
+    <strong>falls du ein Bike-Fitting importiert hast, dessen Kernmaße einschließlich
+    Körpermaßen</strong> (Sitzknochenabstand, Schuhgröße, Stance Width, Sattelbreite) sowie der
+    Name des Fitting-Studios. Dieser Fitting-Block geht bei <strong>jeder</strong> Frage im Chat
+    mit, auch wenn sie inhaltlich nichts mit dem Fitting zu tun hat — er ist fester Bestandteil
+    des Bike-Kontexts und wird nicht je nach Thema weggelassen. Ist der Kilometerstand aus einer
+    verbundenen Apple-Health-Quelle fortgeschrieben, stammt er mittelbar aus deinen
+    Rad-Workouts (siehe 2.3).
+  </li>
+  <li>
+    bei Dokumenten-Uploads: der <strong>vollständige Inhalt</strong> der hochgeladenen
+    PDF-Datei — bei einem Kaufbeleg z. B. Händlername, Kaufdatum, Preis, Modell,
+    <strong>Rahmennummer</strong> und Rahmengröße, ggf. Namen und Adresse auf der Rechnung; bei
+    einem Bike-Fitting-Report <strong>Körpermaße</strong>
+  </li>
+  <li>
+    bei der Recherche: die Suchanfrage. Die Suche wird von Anthropic ausgeführt und ist auf eine
+    feste Liste von Hersteller- und Fachmedienseiten begrenzt.
+  </li>
+  <li>
+    bei der Packliste: Name, Datum und geplante Länge der Tour sowie <strong>deine Notizen zur
+    Tour</strong>. Das ist ein Freitextfeld — was du dort hineinschreibst, etwa Reiseziel, Route
+    oder Zeitplan, geht mit. Die Komponenten des Bikes gehen ohnehin mit (siehe erster Punkt).
+  </li>
+</ul>
+<p>Es gibt zwei Betriebsarten, die datenschutzrechtlich unterschiedlich zu bewerten sind:</p>
+<p>
+  <strong>Regelfall — über BikeTally.</strong> Die Anfragen laufen über unsere Serverfunktion,
+  die den Anthropic-Zugangsschlüssel hält. Damit sind wir für diese Verarbeitung verantwortlich;
+  Anthropic ist unser Auftragsverarbeiter. Die Daten werden dabei <strong>in die USA
+  übermittelt</strong> (Art. 44 ff. DSGVO). Anthropic verarbeitet über die API übermittelte
+  Inhalte nach eigenen Angaben nicht zum Training seiner Modelle. Unsere Serverfunktion speichert
+  die Inhalte nicht; sie reicht sie durch und protokolliert lediglich Zeitpunkt, Zweck,
+  verwendetes Modell und die angefallenen Kosten (siehe 2.7). Rechtsgrundlage ist die
+  Einwilligung (Art. 6 Abs. 1 lit. a DSGVO): Vor dem ersten Aufruf einer KI-Funktion zeigt die
+  App ein eigenes Einwilligungsblatt, das Anthropic, den USA-Transfer und den Datenumfang konkret
+  benennt; erst mit „Zustimmen“ wird die Zustimmung gespeichert und die Funktion nutzbar. Sie
+  lässt sich jederzeit im Konto-Tab unter „KI-Funktionen“ mit einem Schalter widerrufen
+  (Art. 7 Abs. 3 DSGVO) — danach lässt sich keine der KI-Funktionen mehr aufrufen, ohne die
+  Rechtmäßigkeit der bis dahin erfolgten Verarbeitung zu berühren.
+</p>
+<p>
+  Soweit dabei Körpermaße aus einem Bike-Fitting-Report übertragen werden, handelt es sich um
+  Gesundheitsdaten und damit um eine besondere Kategorie personenbezogener Daten. Das betrifft
+  <strong>zwei Fälle, nicht nur einen</strong>: den einmaligen Upload des Reports zum Auslesen
+  und, danach dauerhaft, jede einzelne Frage im Assistenten-Chat, weil die Kernmaße Teil des
+  Bike-Kontexts sind (siehe die Aufzählung oben). Diese Verarbeitung stützt sich deshalb
+  zusätzlich auf Art. 9 Abs. 2 lit. a DSGVO (ausdrückliche Einwilligung in besondere Kategorien
+  personenbezogener Daten). Die App holt diese Einwilligung zweistufig ein: über das
+  Einwilligungsblatt vor dem ersten KI-Aufruf, das Anthropic, den USA-Transfer und den
+  Datenumfang einschließlich der Körpermaße und ihres Mitgehens bei jeder Frage benennt, sowie
+  unmittelbar im Fitting-Import, der vor dem Hochladen ausdrücklich darauf hinweist, dass der
+  Report Körpermaße enthält und dafür an Anthropic (USA) übertragen wird. Für die anschließende
+  <strong>dauerhafte Speicherung</strong> derselben Werte in unserer Datenbank kommt eine dritte,
+  davon getrennte Einwilligung hinzu; sie wird vor dem Speichern mit einem eigenen Blatt
+  eingeholt (siehe 2.1). Im Chat selbst weist eine dauerhaft sichtbare Zeile darauf hin, dass die
+  Antworten von einer KI stammen.
+</p>
+<p>
+  Die Übermittlung stützt sich auf Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO,
+  die Bestandteil unseres Vertrags mit Anthropic sind. Eine Kopie der Garantien ist unter
+  <a href="mailto:hallo@biketally.de">hallo@biketally.de</a> erhältlich
+  (Art. 13 Abs. 1 lit. f DSGVO). Zu den Risiken, die trotz dieser Garantien bleiben, siehe
+  Abschnitt 2.10.
+</p>
+<p>
+  <strong>Ausnahme — eigener Zugangsschlüssel.</strong> Wer im Konto-Tab einen eigenen
+  Anthropic-API-Key hinterlegt, sendet die Anfragen direkt vom Gerät an Anthropic, ohne unsere
+  Beteiligung. In diesem Fall besteht ein eigenes Vertragsverhältnis zwischen der Nutzerin/dem
+  Nutzer und Anthropic; maßgeblich sind dann deren Bedingungen und Datenschutzerklärung.
+</p>
+
+<h3>2.7 Nutzungszähler der KI-Funktionen</h3>
+<p>
+  Um Kosten und Missbrauch zu begrenzen, speichern wir je Konto und Kalendermonat: die
+  Nutzerkennung, die Anzahl der KI-Aufrufe und die dabei entstandenen Kosten. <strong>Inhalte der
+  Anfragen werden dabei nicht gespeichert.</strong> Rechtsgrundlage ist das berechtigte Interesse
+  an einem missbrauchssicheren und finanzierbaren Betrieb (Art. 6 Abs. 1 lit. f DSGVO).
+</p>
+<p>
+  Aus demselben Grund führen unsere Serverfunktionen einen <strong>Stundenzähler zur
+  Ratenbegrenzung</strong>: je Konto, Funktionsbereich und Stunde die Anzahl der Aufrufe,
+  gespeichert unter einer Dokumentkennung, die deine Nutzerkennung enthält. Ohne diese Grenze
+  könnte ein einzelnes Konto die Serverfunktionen für alle anderen lahmlegen. Wirkung und
+  Löschung sind dabei zweierlei: Ein Zähler wirkt nur in seiner eigenen Stunde — weil das
+  Zeitfenster in der Dokumentkennung steckt, wird der Eintrag nach deren Ende nie wieder
+  gelesen —, und er trägt ein Ablaufdatum (Feld <code>ablaufAm</code>) zwei Stunden nach Beginn
+  seines Zeitfensters. Tatsächlich gelöscht wird er aber nicht in diesem Moment, sondern von der
+  nächtlichen Aufräumroutine, die einmal täglich um 3 Uhr läuft; zwischen Ablauf und Löschung
+  können damit bis zu 24 Stunden liegen. Beim Löschen des Kontos wird er ebenfalls entfernt.
+  Rechtsgrundlage ist wiederum Art. 6 Abs. 1 lit. f DSGVO.
+</p>
+<p>
+  Beim Betrieb der Serverfunktionen entstehen zudem technische Protokolle bei Google Cloud
+  Logging: Zeitpunkt, Zweck der Anfrage, verwendetes KI-Modell und die angefallenen Kosten. Die
+  Nutzerkennung geht dabei <strong>nicht im Klartext</strong> ein, sondern nur als achtstellige
+  Kurzform eines Hashwerts, die eine Zuordnung mehrerer Aufrufe zueinander erlaubt, aber keine
+  direkte Kennung mehr ist. Inhalte der Anfragen werden nicht protokolliert. Diese Protokolle
+  löscht Google nach 30 Tagen automatisch (Standardaufbewahrung des
+  <code>_Default</code>-Protokollspeichers).
+</p>
+
+<h3>2.8 Schwarm-Korrekturen bei Komponenten-Recherchen</h3>
+<p>
+  Änderst du eine Komponente, deren Angaben aus einer KI-Recherche stammen, übermitteln wir dazu
+  ein Signal: das (normalisierte) Fahrradmodell, die Kategorie sowie die vorherige und
+  die neue Angabe. Erst wenn genug unabhängige Meldungen zu derselben Korrektur vorliegen, fließt
+  sie als Hinweis in künftige Recherchen zu diesem Modell ein. Zur Zählung der Unabhängigkeit
+  wird seit dem 6. August 2026 deine <strong>Nutzerkennung</strong> mitgespeichert — vorher diente
+  dafür eine zufällig auf dem Gerät erzeugte Kennung, die sich beliebig oft neu erzeugen ließ,
+  sodass eine einzelne Person einen „Schwarm“ vortäuschen konnte. Die Nutzerkennung ist für
+  andere Nutzerinnen und Nutzer zu keinem Zeitpunkt sichtbar, und aus den ausgespielten Hinweisen
+  lässt sich nicht ableiten, wer eine Korrektur gemeldet hat — die Signale sind damit pseudonym,
+  nicht anonym im strengen Sinn.
+</p>
+<p>
+  Rechtsgrundlage ist das berechtigte Interesse an der Qualitätssicherung der
+  Recherche-Ergebnisse (Art. 6 Abs. 1 lit. f DSGVO): Ohne diesen Abgleich ließen sich falsche
+  Angaben aus einer KI-Recherche nicht erkennen und würden anderen Nutzerinnen und Nutzern
+  weiterhin ausgespielt. Zur Speicherdauer siehe Abschnitt 5 (6 Monate).
+</p>
+
+<h3>2.9 Diese Website (biketally.de)</h3>
+<p>
+  Diese Seite wird über GitHub Pages ausgeliefert (GitHub, Inc., USA). Sie lädt keinerlei
+  externe Skripte, Schriftarten, Analytics oder Tracking-Pixel — deshalb gibt es hier keinen
+  Cookie-Banner, es gibt nichts Nicht-Essenzielles zuzustimmen. Beim Aufruf verarbeitet GitHub
+  als Hosting-Anbieter zwangsläufig technische Server-Logdaten (IP-Adresse, Zeitpunkt,
+  angeforderte Seite, User-Agent) zur Auslieferung und Absicherung der Seite. Rechtsgrundlage
+  ist das berechtigte Interesse am sicheren Betrieb der Website (Art. 6 Abs. 1 lit. f DSGVO).
+  Eine feste Aufbewahrungsdauer können wir für diese Logdaten nicht zusagen: Sie entstehen bei
+  GitHub und nicht bei uns, und GitHub nennt für sie keine Frist. Maßgeblich sind deshalb die
+  <strong>Kriterien</strong>, nach denen sie enden (Art. 13 Abs. 2 lit. a DSGVO): Die Daten
+  entstehen allein zur technischen Auslieferung der Seite und zur Abwehr von Missbrauch und
+  Angriffen; GitHub bewahrt personenbezogene Daten nach eigener Angabe so lange auf, wie der
+  Zweck ihrer Erhebung und bestehende rechtliche Pflichten es erfordern, und löscht sie danach
+  (<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub
+  General Privacy Statement</a>, Abschnitt „Data retention and deletion of data“). Sind diese
+  Zwecke erfüllt, endet damit auch die Aufbewahrung. Weiter reicht unser Einfluss nicht: Wir
+  erzeugen diese Logs nicht, können sie nicht einsehen und nicht löschen. GitHub, Inc. hat seinen
+  Sitz in den USA; der Aufruf dieser Seite ist damit ein Drittlandtransfer (Art. 44 ff. DSGVO) —
+  siehe Abschnitt 2.10.
+</p>
+<p>
+  Die DNS-Einträge für biketally.de, einschließlich der Mail-Weiterleitung für
+  hallo@biketally.de, werden über die IONOS SE (Montabaur, Deutschland) verwaltet. Schreibst du
+  uns an diese Adresse, läuft deine Nachricht über die Server von IONOS und wird an ein Postfach
+  weitergeleitet. Verarbeitet werden dabei deine Absenderadresse, der Betreff, der Inhalt deiner
+  Nachricht und die technischen Kopfdaten der E-Mail. Rechtsgrundlage ist das berechtigte
+  Interesse an einer erreichbaren Kontaktadresse (Art. 6 Abs. 1 lit. f DSGVO); betrifft deine
+  Nachricht die Ausübung deiner Betroffenenrechte, tritt die rechtliche Verpflichtung nach
+  Art. 6 Abs. 1 lit. c i.&nbsp;V.&nbsp;m. Art. 12 DSGVO hinzu. Wir bewahren Anfragen so lange
+  auf, wie sie zur Bearbeitung und zum Nachweis der Bearbeitung nötig sind, längstens drei Jahre
+  nach Abschluss des Vorgangs. IONOS hat seinen Sitz in Deutschland; ein Drittlandtransfer
+  entsteht dadurch nicht.
+</p>
+<p>
+  <strong>Das Anfrageformular unter <a href="/kontakt">biketally.de/kontakt</a>.</strong> Es ist
+  der zweite Kontaktweg neben der E-Mail-Adresse, den § 5 Abs. 1 Nr. 2 DDG verlangt. Was du
+  einträgst — Nachricht, deine E-Mail-Adresse für die Antwort und, wenn du magst, deinen Namen —,
+  nimmt eine Serverfunktion in Frankfurt (<code>kontaktAnfrage</code>, Google/Firebase,
+  <code>europe-west3</code>) entgegen und stellt es per verschlüsselter Verbindung an das Postfach
+  <code>hallo@biketally.de</code> bei der IONOS SE zu. Von dort läuft es wie eine gewöhnliche
+  E-Mail weiter, es gelten also die Angaben des vorigen Absatzes.
+</p>
+<p>
+  <strong>Der Inhalt deiner Nachricht wird dabei nicht gespeichert.</strong> Die Funktion reicht
+  ihn durch und behält ihn nicht; er existiert danach nur noch als E-Mail im Postfach. Gespeichert
+  werden allein zwei Zähler gegen Massenzusendungen: einer je Absender und Stunde, einer für alle
+  Anfragen eines Tages. Der erste enthält <strong>nicht deine IP-Adresse</strong>, sondern eine
+  gekürzte kryptografische Prüfsumme davon — sie erfüllt den Zweck „denselben Absender bremsen“,
+  lässt sich aber nicht in die Adresse zurückrechnen. Beide Zähler löschen sich nach zwei Stunden
+  bzw. zwei Tagen selbst.
+</p>
+<p>
+  Rechtsgrundlage ist das berechtigte Interesse an der Bearbeitung deiner Anfrage und an der
+  Abwehr automatisierter Massenzusendungen (Art. 6 Abs. 1 lit. f DSGVO); betrifft die Nachricht
+  ein Vertragsverhältnis, dessen Erfüllung (Art. 6 Abs. 1 lit. b DSGVO), und bei
+  Betroffenenrechten Art. 6 Abs. 1 lit. c i.&nbsp;V.&nbsp;m. Art. 12 DSGVO. Für die Aufbewahrung
+  der Korrespondenz gilt dieselbe Frist wie oben.
+</p>
+<p>
+  Die Seite lädt für das Formular <strong>nichts nach</strong> — kein CAPTCHA, keine fremden
+  Skripte, keine Schriftarten von Dritten. Gegen automatisierte Einsendungen steht stattdessen ein
+  verstecktes Feld, das nur Maschinen ausfüllen. Deshalb kommt an dieser Stelle auch kein weiterer
+  Empfänger hinzu: Es bleibt bei Google/Firebase und IONOS, die beide ohnehin schon hier stehen.
+</p>
+
+<h3>2.10 Übermittlungen in die USA und die Risiken daraus</h3>
+<p>
+  Drei der oben genannten Empfänger sitzen in den USA: <strong>Anthropic PBC</strong>
+  (KI-Funktionen, 2.6), <strong>Strava, Inc.</strong> (Fahrtenimport, 2.5) und
+  <strong>GitHub, Inc.</strong> (Auslieferung dieser Website, 2.9). <strong>Apple</strong>
+  gehört nicht dazu: Für Personen im Europäischen Wirtschaftsraum ist nach Apples eigener
+  Datenschutzerklärung durchgehend die Apple Distribution International Limited in Irland
+  verantwortlich — bei iCloud Drive und Apple Health dir gegenüber selbst (2.2, 2.3), beim
+  Push-Dienst uns gegenüber aus dem Vertrag über das Apple Developer Program (2.4). Eine
+  Übermittlung in ein Drittland durch BikeTally entsteht dabei nicht; für Apples eigene
+  Weiterübermittlungen aus dem Europäischen Wirtschaftsraum gelten nach Apples Angaben
+  Standardvertragsklauseln. Bei <strong>Google</strong> als
+  Betreiber von Firebase lässt sich dagegen ein Zugriff aus Drittländern trotz europäischer
+  Speicherorte nicht vollständig ausschließen (2.1).
+</p>
+<p>
+  Für die USA gibt es keinen unbeschränkten Angemessenheitsbeschluss der Europäischen
+  Kommission; das EU-US Data Privacy Framework gilt nur für Unternehmen, die sich ausdrücklich
+  dafür zertifiziert haben. Worauf sich die einzelnen Übermittlungen stützen, ist deshalb
+  unterschiedlich:
+</p>
+<ul>
+  <li><strong>Anthropic PBC</strong> ist nicht nach dem Data Privacy Framework zertifiziert.
+    Die Übermittlung stützt sich auf <strong>Standardvertragsklauseln der Europäischen
+    Kommission</strong> (Art. 46 Abs. 2 lit. c DSGVO), die Bestandteil unseres Vertrags mit
+    Anthropic sind. Eine Kopie ist unter
+    <a href="mailto:hallo@biketally.de">hallo@biketally.de</a> erhältlich.</li>
+  <li><strong>Google LLC</strong> (Firebase) ist nach dem EU-US Data Privacy Framework
+    zertifiziert; die Übermittlung stützt sich damit auf den Angemessenheitsbeschluss der
+    Europäischen Kommission vom 10. Juli 2023 (Art. 45 DSGVO). Ergänzend enthalten die
+    Firebase-Vertragsbedingungen Standardvertragsklauseln.</li>
+  <li><strong>GitHub</strong> ist nach dem EU-US Data Privacy Framework zertifiziert; die
+    Übermittlung stützt sich damit auf den Angemessenheitsbeschluss der Europäischen Kommission
+    (Art. 45 DSGVO). Diese Zertifizierung gilt unabhängig davon, welchen Vertrag wir mit GitHub
+    haben. Die Standardvertragsklauseln aus GitHubs Datenschutzvereinbarung kommen daneben
+    <strong>nicht</strong> zum Tragen: Jene Vereinbarung ist Bestandteil der
+    GitHub-Kundenvereinbarung, und für ein gewöhnliches Konto gelten die Nutzungsbedingungen,
+    die auf sie nicht verweisen. Für diese Übermittlung trägt deshalb allein der
+    Angemessenheitsbeschluss.</li>
+  <li><strong>Strava, Inc.</strong> ist nicht zertifiziert, und wir haben mit Strava keinen
+    eigenen Vertrag: Du autorisierst den Zugriff selbst gegenüber Strava, Strava ist für die
+    dortige Verarbeitung eigenständig verantwortlich. Für diese eine Übermittlung liegen uns
+    deshalb <strong>keine geeigneten Garantien nach Art. 46 DSGVO vor, auf die wir uns berufen
+    könnten</strong>; sie stützt sich ausschließlich auf deine ausdrückliche Einwilligung nach
+    <strong>Art. 49 Abs. 1 lit. a DSGVO</strong>. Diese Vorschrift verlangt, dass du vorher
+    über die Risiken unterrichtet wurdest. Dazu gehört auch dieser Hinweis: Nach
+    Erwägungsgrund 111 und den Leitlinien 2/2018 des Europäischen Datenschutzausschusses ist
+    Art. 49 Abs. 1 lit. a eng auszulegen und nach Auffassung der Aufsichtsbehörden nur die
+    Ausnahme für gelegentliche Übermittlungen — nicht für dauerhaft wiederkehrende.
+    <strong>Wir haben den Abgleich deshalb am 7. August 2026 an deine Nutzung gebunden:</strong>
+    Er läuft nur noch, wenn du die App öffnest oder ihn selbst anstößt, und nicht mehr im
+    Hintergrund bei geschlossener App (2.5). Damit hängt jede Übermittlung an einer Handlung von
+    dir. Ein Restrisiko bleibt, weil auch das häufig geschehen kann; du kannst die Verbindung
+    jederzeit im Konto-Tab trennen und den Abgleich so ganz beenden.</li>
+</ul>
+<p>
+  <strong>Was auch mit Garantien bleibt.</strong> Standardvertragsklauseln und
+  Angemessenheitsbeschluss verpflichten den Empfänger, sie ändern aber nichts am Recht des
+  Ziellandes. Die folgenden Punkte gelten deshalb für die Übermittlung an Strava in vollem
+  Umfang und für alle übrigen US-Empfänger als verbleibendes Restrisiko:
+</p>
+<ul>
+  <li>In den USA haben Behörden weitergehende Zugriffsmöglichkeiten auf Daten bei dortigen
+    Anbietern, als es das europäische Recht vorsieht, und du erfährst von einem solchen
+    Zugriff in aller Regel nichts.</li>
+  <li>Deine Betroffenenrechte (Auskunft, Löschung, Widerspruch) sind gegenüber einem
+    Unternehmen ohne Niederlassung in der EU praktisch schwerer durchzusetzen, und es gibt kein
+    der DSGVO gleichwertiges Aufsichts- und Rechtsschutzsystem.</li>
+  <li>Ein einmal übermittelter Inhalt lässt sich nicht zurückholen. Ein späterer Widerruf wirkt
+    nur für die Zukunft.</li>
+</ul>
+<p>
+  Beide Funktionen sind deshalb freiwillig und abschaltbar: Die App fragt vor dem ersten
+  KI-Aufruf und vor dem Verbinden mit Strava ausdrücklich nach und nennt dabei jeweils, worauf
+  sich die Übermittlung stützt und was an Risiko bleibt; du kannst die Zustimmung jederzeit im
+  Konto-Tab widerrufen. Ohne diese Zustimmung
+  funktioniert der Rest der App uneingeschränkt weiter.
+</p>
+<p>
+  Für die Auslieferung dieser Website über GitHub Pages ist eine Einwilligung kein gangbarer
+  Weg — die Server-Logdaten entstehen zwangsläufig beim Aufruf, bevor irgendetwas gefragt werden
+  könnte. Wir stützen sie auf das berechtigte Interesse am sicheren Betrieb (2.9).
+</p>
+
+<h2>3. Was außerhalb unserer Datenbank bleibt</h2>
+<p>
+  Hochgeladene Kaufbeleg-, Fitting- und Werkstattbeleg-PDFs werden <strong>nicht</strong> in
+  unserer Datenbank gespeichert (nur die daraus ausgelesenen Werte landen in der Datenbank),
+  sondern in deinem iCloud Drive: im iCloud-Drive-Container der App, sichtbar in der Dateien-App
+  unter „BikeTally/Belege“. Von dort synchronisieren sie über alle Geräte, die mit derselben
+  Apple-ID angemeldet sind. Nur wenn kein iCloud-Konto verbunden bzw. iCloud Drive deaktiviert
+  ist, bleiben die Dateien ausschließlich lokal auf dem Gerät. Zum Auslesen wird ihr Inhalt
+  allerdings einmalig an Anthropic übertragen — siehe 2.6.
+</p>
+<p>
+  Die Strava-Zugriffstoken und, sofern hinterlegt, ein eigener Anthropic-API-Key liegen
+  ausschließlich im Schlüsselbund (Keychain) des Geräts. Beim Abmelden und beim Löschen des
+  Kontos werden sie entfernt.
+</p>
+<p>
+  Bei den Belegen ist zwischen beidem zu unterscheiden, und die frühere Fassung dieses Absatzes
+  war hier falsch:
+</p>
+<ul>
+  <li><strong>Beim Abmelden</strong> löscht die App nur die Belegkopien im geräteeigenen
+    Rückfallordner. Die Dateien in deinem iCloud Drive bleiben erhalten. Das ist Absicht: Der
+    iCloud-Ordner ist über alle Geräte derselben Apple-ID sichtbar und gehört dir, nicht dem
+    BikeTally-Konto — ein Abmelden auf einem Gerät darf nicht wortlos Dateien auf deinem iPad
+    oder Mac vernichten. Du kannst sie jederzeit selbst in der Dateien-App unter
+    „BikeTally/Belege“ entfernen.</li>
+  <li><strong>Beim Löschen des Kontos</strong> werden auch die Belege in iCloud Drive gelöscht,
+    und zwar auf allen Geräten mit derselben Apple-ID. Ist iCloud in diesem Moment nicht
+    erreichbar, sagt die App das ausdrücklich und nennt den Ort, an dem du sie selbst entfernen
+    kannst.</li>
+</ul>
+
+<h2>4. Freigabe-Links („Digitales Scheckheft“)</h2>
+<p>
+  Wird ein Freigabe-Link für ein Bike erzeugt, liegt ein Snapshot der Bike-, Komponenten- und
+  Wartungsdaten unter einer zufälligen, schwer erratbaren Adresse öffentlich lesbar in der
+  Datenbank — ohne Anmeldung, für jede Person mit dem Link. Der Snapshot enthält Name, Typ,
+  Rahmengröße und Kilometerstand des Bikes, die aktiven Komponenten und die Wartungshistorie —
+  und technisch bedingt auch <strong>deine Nutzerkennung</strong> (die zufällige Zeichenfolge,
+  unter der dein Konto in der Datenbank geführt wird). Sie steht dort, weil nur an ihr erkennbar
+  ist, wem der Snapshot gehört: Ohne sie könnte weder die Datenbank verhindern, dass jemand
+  anderes ihn überschreibt, noch könnte er beim Löschen deines Kontos zuverlässig mitgelöscht
+  werden. Die Kennung enthält weder deinen Namen noch deine E-Mail-Adresse und lässt sich von
+  außen keiner Person zuordnen; wer den Link hat, sieht sie aber.
+  Rechtsgrundlage ist die Einwilligung
+  (Art. 6 Abs. 1 lit. a DSGVO): Der Link entsteht nur auf ausdrückliche Handlung. Der Link lässt
+  sich jederzeit im jeweiligen Bike zurückziehen, wodurch der Snapshot gelöscht wird. Wird das
+  betreffende Bike oder das gesamte Konto gelöscht, wird der Freigabe-Link automatisch mit
+  entfernt. Wird ein Snapshot 90 Tage lang nicht erneut aktualisiert (z. B. weil niemand mehr die
+  zugehörige Bike-Seite öffnet), wird er automatisch gelöscht.
+</p>
+
+<h2>5. Speicherdauer</h2>
+<p>
+  Daten werden gespeichert, solange das Konto besteht. Das Konto lässt sich im Konto-Tab unter
+  „Konto löschen“ vollständig und unwiderruflich löschen; dabei werden sämtliche zugehörigen
+  Daten entfernt — alle Bikes, Komponenten, Serviceintervalle, Wartungen, Fahrten, Fittings,
+  Reifendruckwerte, Werkstattbesuche, Touren, Material, Teile, das Änderungsprotokoll (2.1), die
+  Fälligkeits-Kurzfassung und Push-Gerätetoken (2.4), die Einwilligungsnachweise (2.1) sowie
+  veröffentlichte Freigabe-Links. Gerätelokale Daten (API-Key, Strava-Verbindung) sowie die
+  gespeicherten Belege (siehe Abschnitt 3) werden dabei ebenfalls entfernt. Das
+  Änderungsprotokoll wird unabhängig davon nach 365 Tagen automatisch bereinigt. Ein
+  Freigabe-Link, der 90 Tage lang nicht aufgefrischt wurde, wird ebenfalls automatisch gelöscht
+  (Abschnitt 4).
+</p>
+<p>
+  Der Nutzungszähler der KI-Funktionen (siehe 2.7) wird bei der Kontolöschung mit entfernt;
+  unabhängig davon werden die Einträge 13 Monate nach dem jeweiligen Monat automatisch gelöscht.
+  Die Zähler der Ratenbegrenzung (ebenfalls 2.7) laufen zwei Stunden nach Beginn ihres
+  Zeitfensters ab; gelöscht werden sie von der nächtlichen Aufräumroutine, also spätestens am
+  Tag darauf — und spätestens mit dem Konto. Die pseudonymen
+  Schwarm-Korrektursignale (siehe 2.8) werden 6 Monate nach ihrer Entstehung automatisch
+  gelöscht — und zusätzlich sofort, wenn das zugehörige Konto gelöscht wird.
+</p>
+<p>
+  <strong>Aufgegebene Gastkonten.</strong> Ein Gastkonto (siehe 2.1) lässt sich nach dem
+  Abmelden nicht wieder erreichen — niemand kann es also selbst löschen. Deshalb wird ein
+  anonymes Konto, das 180 Tage lang nicht mehr benutzt wurde, samt aller darunter gespeicherten
+  Daten automatisch gelöscht. Wer seine Daten behalten will, sichert das Gastkonto vorher per
+  Apple-ID; dabei bleibt dieselbe Nutzerkennung erhalten, und die Frist gilt nicht mehr.
+</p>
+<p>
+  Hast du dich mit deiner Apple-ID angemeldet, wird beim Löschen des Kontos zusätzlich versucht,
+  die Verbindung auch bei Apple zu widerrufen, damit BikeTally in deinen
+  Apple-ID-Einstellungen nicht als verbundener Dienst stehen bleibt. Scheitert das, sagt die App
+  es dir und nennt den Weg, es selbst zu tun.
+</p>
+
+<h2>6. Deine Rechte</h2>
+<p>
+  Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und
+  Widerspruch nach Art. 15–21 DSGVO. Soweit eine Verarbeitung auf deiner Einwilligung beruht
+  (Strava-Verbindung, KI-Funktionen, Health-Verbindung, Speicherung eines Bike-Fittings,
+  Freigabe-Links), kannst du sie jederzeit mit Wirkung für die Zukunft widerrufen, ohne dass die
+  Rechtmäßigkeit der bis dahin erfolgten Verarbeitung berührt wird (Art. 7 Abs. 3 DSGVO) — die
+  jeweilige Verbindungsseite im Konto-Tab bzw. am Bike ist zugleich der Widerrufsweg; beim
+  Fitting ist es das Löschen des Fittings (2.1). Eine automatisierte Entscheidungsfindung
+  einschließlich Profiling im Sinne von Art. 22 DSGVO findet nicht statt; alle Vorschläge der
+  KI-Funktionen des Assistenten und die aus Belegen ausgelesenen Werte musst du selbst
+  bestätigen, bevor sie gespeichert werden. Bei der Komponenten- und der Intervall-Recherche ist
+  es anders herum: Sie legen ihre Ergebnisse zunächst <strong>als unbestätigt</strong> in deinem
+  Bestand ab, damit du sie dort durchsehen und bestätigen, ändern oder löschen kannst. Auch dort
+  entscheidet also am Ende ein Mensch, nur eben nach dem Anlegen statt davor — eine rechtliche
+  Wirkung oder eine ähnlich erhebliche Beeinträchtigung im Sinne von Art. 22 DSGVO geht davon
+  nicht aus.
+</p>
+<p>
+  Ein <strong>vollständiger Datenexport</strong> ist im Konto-Tab unter „Datenhygiene“ jederzeit
+  selbst möglich; die Löschung des gesamten Kontos ebenfalls im Konto-Tab. Der Export enthält
+  neben allen in der App erfassten Inhalten auch die Daten, die für die App selbst nicht lesbar
+  sind und deshalb über unsere Serverfunktionen geholt werden: den Nutzungszähler der
+  KI-Funktionen (2.7) und deine eigenen Schwarm-Korrektursignale (2.8). Dazu kommen die
+  Stammdaten deines Anmeldekontos (E-Mail-Adresse, Anzeigename, Anmeldewege, Erstellungs- und
+  letztes Anmeldedatum) sowie die Einwilligungsnachweise (2.1). Lässt sich einer dieser Teile
+  gerade nicht abrufen, sagt die App das ausdrücklich, statt eine unvollständige Datei als
+  vollständig auszugeben. Für alle weiteren Anliegen:
+  <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>.
+</p>
+<p>
+  <strong>Widerspruchsrecht (Art. 21 DSGVO).</strong> Soweit wir Daten auf der Grundlage eines
+  berechtigten Interesses verarbeiten (Art. 6 Abs. 1 lit. f DSGVO), hast du das Recht, aus
+  Gründen, die sich aus deiner besonderen Situation ergeben, jederzeit
+  <strong>Widerspruch</strong> gegen diese Verarbeitung einzulegen. Das betrifft in dieser App:
+  den Nutzungszähler und die Ratenbegrenzung der KI-Funktionen (2.7), die Schwarm-Korrekturen
+  (2.8), die Wartungserinnerungen samt Fälligkeits-Kurzfassung (2.4), die Server-Logdaten dieser
+  Website (2.9) und die Bearbeitung deiner E-Mail an uns (2.9). Legst du Widerspruch ein,
+  verarbeiten wir die betroffenen Daten nicht weiter, es sei denn, wir können zwingende
+  schutzwürdige Gründe nachweisen, die deine Interessen überwiegen. Der Widerspruch ist formfrei
+  und genügt als E-Mail an <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>. Für
+  Direktwerbung findet keine Verarbeitung statt — BikeTally versendet keine Werbung.
+</p>
+<p>
+  Beschwerderecht besteht bei der zuständigen Aufsichtsbehörde; für Frankfurt am Main ist das
+  der Hessische Beauftragte für Datenschutz und Informationsfreiheit (HBDI),
+  Gustav-Stresemann-Ring 1, 65189 Wiesbaden.
+</p>
+
+<h2>7. Kinder</h2>
+<p>
+  BikeTally richtet sich nicht an Kinder unter 16 Jahren. Der Grund ist nicht der Inhalt,
+  sondern die Rechtsgrundlage: Die optionalen Funktionen dieser App (KI-Funktionen,
+  Apple-Health-Verbindung, Freigabe-Links) beruhen auf einer Einwilligung, und nach Art. 8
+  Abs. 1 DSGVO kann eine Person unter 16 Jahren eine solche Einwilligung in Deutschland nicht
+  wirksam allein erteilen — dafür bräuchte es die Zustimmung der Erziehungsberechtigten.
+</p>
+<p>
+  <strong>Wir fragen das Alter dort, wo es darauf ankommt.</strong> Bevor du zum ersten Mal einer
+  der einwilligungsbasierten Funktionen zustimmst, erscheint im Einwilligungsblatt zusätzlich die
+  Erklärung „Ich bin 16 Jahre oder älter“. Ohne sie lässt sich die Einwilligung nicht erteilen;
+  mit ihr gilt sie für die übrigen Einwilligungsblätter mit, du wirst also <strong>genau
+  einmal</strong> gefragt.
+</p>
+<p>
+  <strong>Für den Kern der App brauchst du diese Erklärung nicht.</strong> Bikes, Komponenten,
+  Serviceintervalle und die Wartungshistorie beruhen nicht auf einer Einwilligung, sondern auf der
+  Erfüllung des Nutzungsverhältnisses (Art. 6 Abs. 1 lit. b DSGVO). Wer die App nur als Scheckheft
+  benutzt, sieht die Frage nie. Genau daran krankte die Vorgängerlösung: Vom 6. bis zum 7. August
+  2026 stand die Bestätigung im Anmeldeschirm und sperrte alle drei Wege zu einem Konto — also
+  auch die Nutzungen, für die Art. 8 DSGVO überhaupt nicht einschlägig ist.
+</p>
+<p>
+  <strong>Was diese Erklärung ist und was nicht.</strong> Sie ist eine Selbstauskunft, die mit
+  nichts abgeglichen wird, und sie ersetzt keine Altersverifikation. Eine echte Altersprüfung
+  würde deutlich mehr Daten erheben als die App sonst braucht. Sie ist das, was uns bei einer
+  kostenlosen App ohne Ausweisprüfung als „angemessene Anstrengung“ nach Art. 8 Abs. 2 DSGVO
+  verhältnismäßig erscheint — nicht mehr. Erfahren wir, dass ein Konto von einer Person unter 16
+  geführt wird, löschen wir es.
+</p>
+<p>
+  Die Erklärung wird mit Zeitpunkt und der zugrunde gelegten Altersgrenze im Konto gespeichert
+  (Feld <code>altersbestaetigung</code>, siehe 2.1), geht in den Datenexport ein und wird mit dem
+  Konto gelöscht. Konten, die zwischen dem 6. und dem 7. August 2026 angelegt wurden, tragen den
+  damals gespeicherten Nachweis bereits; sie werden beim nächsten Einwilligungsblatt einmal
+  erneut gefragt, der alte Eintrag bleibt daneben erhalten.
+</p>
+<p>
+  Die App Store-Altersfreigabe steht auf 4+, weil Apples Fragebogen ausschließlich nach
+  Inhaltskategorien fragt (Gewalt, Schrecken, Glücksspiel und Ähnliches) und keine davon
+  zutrifft; nach Kontoerstellung, Cloud-Speicherung oder KI-Chat fragt er nicht.
+</p>
+
+<h2>8. Änderungen dieser Erklärung</h2>
+<p>
+  Diese Erklärung wird angepasst, wenn sich die Funktionen der App oder die eingesetzten Dienste
+  ändern. Maßgeblich ist die jeweils auf dieser Seite veröffentlichte Fassung.
+</p>
+
+<h2>9. Datenschutzerklärungen der eingesetzten Dienste</h2>
+<p>
+  Die oben genannten Empfänger informieren jeweils selbst über ihre Verarbeitung:
+</p>
+<ul>
+  <li>Google (Firebase): <a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer">firebase.google.com/support/privacy</a></li>
+  <li>Apple: <a href="https://www.apple.com/legal/privacy/de-ww/" rel="noopener noreferrer">apple.com/legal/privacy</a></li>
+  <li>Strava: <a href="https://www.strava.com/legal/privacy" rel="noopener noreferrer">strava.com/legal/privacy</a></li>
+  <li>Anthropic: <a href="https://www.anthropic.com/legal/privacy" rel="noopener noreferrer">anthropic.com/legal/privacy</a></li>
+  <li>GitHub: <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">docs.github.com – GitHub General Privacy Statement</a></li>
+</ul>
+
+<p class="stand">Stand: 7. August 2026 (neunte Fassung)</p>
+
+<footer>
+  <a href="/">Start</a> · <a href="/impressum">Impressum</a> ·
+  <a href="mailto:hallo@biketally.de">hallo@biketally.de</a>
+</footer>
+
+</div>
 </body>
 </html>
